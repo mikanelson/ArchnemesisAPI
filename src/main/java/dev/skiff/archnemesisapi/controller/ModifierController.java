@@ -16,17 +16,17 @@ public class ModifierController {
         this.modifierService = modifierService;
     }
 
-    @GetMapping
+    @GetMapping("/modifier")
     public List<Modifier> getAllModifiers(){
         return modifierService.getAllModifiers();
     }
 
-    @PostMapping("/addModifier")
+    @PostMapping("/modifier/add")
     public Modifier postModifier(@RequestBody Modifier modifier){
         return modifierService.saveModifier(modifier);
     }
 
-    @GetMapping({"name"})
+    @GetMapping("/modifier/{name}")
     public List<Modifier> getAllModifiersByName(@PathVariable String name){
         return modifierService.getAllModifiersByName(name);
     }
