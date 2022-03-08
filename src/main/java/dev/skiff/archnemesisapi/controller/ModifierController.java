@@ -12,28 +12,28 @@ public class ModifierController {
     ModifierService modifierService;
 
     @Autowired
-    public ModifierController(ModifierService modifierService){
+    public ModifierController(ModifierService modifierService) {
         this.modifierService = modifierService;
     }
 
     @GetMapping("/modifier")
-    public List<Modifier> getAllModifiers(){
+    public List<Modifier> getAllModifiers() {
         return modifierService.getAllModifiers();
     }
 
     @PostMapping("/modifier/add")
-    public Modifier postModifier(@RequestBody Modifier modifier){
+    public Modifier postModifier(@RequestBody Modifier modifier) {
         return modifierService.saveModifier(modifier);
     }
 
     @GetMapping("/modifier/name/{name}")
-    public List<Modifier> getAllModifiersByName(@PathVariable String name){
+    public List<Modifier> getAllModifiersByName(@PathVariable String name) {
         return modifierService.getAllModifiersByName(name);
     }
 
 
     @GetMapping("/modifier/id/{id}")
-    public List<Modifier> getAllModifiersByID(@PathVariable int id){
-        return modifierService.getAllModifiersById(id);
+    public Modifier getModifierById(@PathVariable int id) {
+        return modifierService.getModifierById(id);
     }
 }

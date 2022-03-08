@@ -12,7 +12,7 @@ public class ModifierService {
     ModifierRepository modifierRepository;
 
     @Autowired
-    public ModifierService(ModifierRepository modifierRepository){
+    public ModifierService(ModifierRepository modifierRepository) {
         this.modifierRepository = modifierRepository;
     }
 
@@ -20,7 +20,7 @@ public class ModifierService {
         return modifierRepository.getAllModifiers();
     }
 
-    public Modifier saveModifier(Modifier modifier){
+    public Modifier saveModifier(Modifier modifier) {
         return modifierRepository.save(modifier);
     }
 
@@ -28,7 +28,15 @@ public class ModifierService {
         return modifierRepository.findAllModifiersByName(name);
     }
 
-    public List<Modifier> getAllModifiersById(int id) {
-        return modifierRepository.findAllModifiersById(id);
+    public Modifier getModifierById(int id) {
+        return modifierRepository.findModifierById(id);
+    }
+
+    public Modifier updateModifier(int id, Modifier updatedModifier) {
+        Modifier modifier = modifierRepository.findModifierById(id);
+        if (modifier != null) {
+            modifierRepository.save(updatedModifier);
+        }
+        return null;
     }
 }

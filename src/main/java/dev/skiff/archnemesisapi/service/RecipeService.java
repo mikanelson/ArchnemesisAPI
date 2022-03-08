@@ -12,7 +12,7 @@ public class RecipeService {
     RecipeRepository recipeRepository;
 
     @Autowired
-    public RecipeService(RecipeRepository recipeRepository){
+    public RecipeService(RecipeRepository recipeRepository) {
         this.recipeRepository = recipeRepository;
     }
 
@@ -20,7 +20,7 @@ public class RecipeService {
         return recipeRepository.getAllRecipes();
     }
 
-    public Recipe saveRecipe(Recipe recipe){
+    public Recipe saveRecipe(Recipe recipe) {
         return recipeRepository.save(recipe);
     }
 
@@ -28,7 +28,15 @@ public class RecipeService {
         return recipeRepository.findAllRecipesByName(name);
     }
 
-    public List<Recipe> getAllRecipesById(int id) {
-        return recipeRepository.findAllRecipesById(id);
+    public Recipe getRecipeById(int id) {
+        return recipeRepository.findRecipeById(id);
+    }
+
+    public Recipe updateRecipe(int id, Recipe updatedRecipe) {
+        Recipe recipe = recipeRepository.findRecipeById(id);
+        if (recipe != null) {
+            return recipeRepository.save(updatedRecipe);
+        }
+        return null;
     }
 }

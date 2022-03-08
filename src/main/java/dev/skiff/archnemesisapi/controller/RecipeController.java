@@ -12,27 +12,27 @@ public class RecipeController {
     RecipeService recipeService;
 
     @Autowired
-    public RecipeController(RecipeService recipeService){
+    public RecipeController(RecipeService recipeService) {
         this.recipeService = recipeService;
     }
 
     @GetMapping("/recipe")
-    public List<Recipe> getAllRecipes(){
+    public List<Recipe> getAllRecipes() {
         return recipeService.getAllRecipes();
     }
 
     @PostMapping("/recipe/add")
-    public Recipe postRecipe(@RequestBody Recipe recipe){
+    public Recipe postRecipe(@RequestBody Recipe recipe) {
         return recipeService.saveRecipe(recipe);
     }
 
     @GetMapping("/recipe/name/{name}")
-    public List<Recipe> getAllRecipesByName(@PathVariable String name){
+    public List<Recipe> getAllRecipesByName(@PathVariable String name) {
         return recipeService.getAllRecipesByName(name);
     }
 
     @GetMapping("/recipe/id/{id}")
-    public List<Recipe> getAllRecipesById(@PathVariable int id){
-        return recipeService.getAllRecipesById(id);
+    public Recipe getRecipeById(@PathVariable int id) {
+        return recipeService.getRecipeById(id);
     }
 }
