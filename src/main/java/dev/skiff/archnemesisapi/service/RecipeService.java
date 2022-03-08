@@ -27,4 +27,8 @@ public class RecipeService {
     public List<Recipe> getAllRecipesByName(String name) {
         return recipeRepository.findAllRecipesByName(name);
     }
+
+    public List<Recipe> getAllRecipesById(int id) {
+        return recipeRepository.findAllRecipesById(id);
+    }
 }

@@ -26,9 +26,14 @@ public class ModifierController {
         return modifierService.saveModifier(modifier);
     }
 
-    @GetMapping("/modifier/{name}")
+    @GetMapping("/modifier/name/{name}")
     public List<Modifier> getAllModifiersByName(@PathVariable String name){
         return modifierService.getAllModifiersByName(name);
     }
 
+
+    @GetMapping("/modifier/id/{id}")
+    public List<Modifier> getAllModifiersByID(@PathVariable int id){
+        return modifierService.getAllModifiersById(id);
+    }
 }

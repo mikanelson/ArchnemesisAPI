@@ -28,9 +28,13 @@ public class RewardController {
         return rewardService.saveReward(reward);
     }
 
-    @GetMapping("/reward/{name}")
+    @GetMapping("/reward/name/{name}")
     public List<Reward> getAllRewardsByName(@PathVariable String name){
         return rewardService.getAllRewardsByName(name);
     }
 
+    @GetMapping("/reward/id/{id}")
+    public List<Reward> getAllRewardsById(@PathVariable int id){
+        return rewardService.getAllRewardsById(id);
+    }
 }

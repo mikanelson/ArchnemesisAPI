@@ -28,4 +28,8 @@ public class RewardService {
     public List<Reward> getAllRewardsByName(String name) {
         return rewardRepository.findAllRewardsByName(name);
     }
+
+    public List<Reward> getAllRewardsById(int id) {
+        return rewardRepository.findAllRewardsById(id);
+    }
 }

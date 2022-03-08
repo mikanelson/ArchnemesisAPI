@@ -14,4 +14,7 @@ public interface RewardRepository extends JpaRepository<Reward, Integer> {
 
     @Query("from Reward where name = :name")
     List<Reward> findAllRewardsByName(String name);
+
+    @Query("from Reward where rewardid = :id")
+    List<Reward> findAllRewardsById(int id);
 }

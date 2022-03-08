@@ -14,4 +14,7 @@ public interface ModifierRepository extends JpaRepository<Modifier, Integer> {
 
     @Query("from Modifier where name = :name")
     List<Modifier> findAllModifiersByName(String name);
+
+    @Query("from Modifier where modifierid = :id")
+    List<Modifier> findAllModifiersById(int id);
 }

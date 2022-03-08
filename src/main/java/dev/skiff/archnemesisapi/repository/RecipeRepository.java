@@ -1,5 +1,6 @@
 package dev.skiff.archnemesisapi.repository;
 
+import dev.skiff.archnemesisapi.model.Modifier;
 import dev.skiff.archnemesisapi.model.Recipe;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -14,4 +15,7 @@ public interface RecipeRepository extends JpaRepository<Recipe, Integer> {
 
     @Query("from Recipe where name = :name")
     List<Recipe> findAllRecipesByName(String name);
+
+    @Query("from Recipe where recipeid = :id")
+    List<Recipe> findAllRecipesById(int id);
 }

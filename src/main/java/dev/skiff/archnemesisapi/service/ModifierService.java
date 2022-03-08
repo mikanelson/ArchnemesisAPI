@@ -27,4 +27,8 @@ public class ModifierService {
     public List<Modifier> getAllModifiersByName(String name) {
         return modifierRepository.findAllModifiersByName(name);
     }
+
+    public List<Modifier> getAllModifiersById(int id) {
+        return modifierRepository.findAllModifiersById(id);
+    }
 }

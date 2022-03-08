@@ -26,9 +26,13 @@ public class RecipeController {
         return recipeService.saveRecipe(recipe);
     }
 
-    @GetMapping("/recipe/{name}")
+    @GetMapping("/recipe/name/{name}")
     public List<Recipe> getAllRecipesByName(@PathVariable String name){
         return recipeService.getAllRecipesByName(name);
     }
 
+    @GetMapping("/recipe/id/{id}")
+    public List<Recipe> getAllRecipesById(@PathVariable int id){
+        return recipeService.getAllRecipesById(id);
+    }
 }
