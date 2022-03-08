@@ -4,10 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "Modifiers")
@@ -21,8 +18,10 @@ public class Modifier {
     private String name;
     @Column
     private String description;
-    @Column
-    private String rewardOne;
-    @Column
-    private String rewardTwo;
+    @ManyToOne
+    @JoinColumn(name = "firstReward", referencedColumnName="rewardid")
+    private Reward rewardOne;
+    @ManyToOne
+    @JoinColumn(name = "secondReward", referencedColumnName="rewardid")
+    private Reward rewardTwo;
 }

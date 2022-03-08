@@ -4,10 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "Recipes")
@@ -21,20 +18,28 @@ public class Recipe {
     private String name;
     @Column
     private String description;
-    @Column
-    private String firstIng;
-    @Column
-    private String secondIng;
-    @Column
-    private String thirdIng;
-    @Column
-    private String fourthIng;
-    @Column
-    private String rewardOne;
-    @Column
-    private String rewardTwo;
-    @Column
-    private String rewardThree;
-    @Column
-    private String rewardFour;
+    @ManyToOne
+    @JoinColumn(name = "firstIng", referencedColumnName="modifierid")
+    private Modifier firstIng;
+    @ManyToOne
+    @JoinColumn(name = "secondIng", referencedColumnName="modifierid")
+    private Modifier secondIng;
+    @ManyToOne
+    @JoinColumn(name = "thirdIng", referencedColumnName="modifierid")
+    private Modifier thirdIng;
+    @ManyToOne
+    @JoinColumn(name = "fourthIng", referencedColumnName="modifierid")
+    private Modifier fourthIng;
+    @ManyToOne
+    @JoinColumn(name = "firstReward", referencedColumnName="rewardid")
+    private Reward rewardOne;
+    @ManyToOne
+    @JoinColumn(name = "secondReward", referencedColumnName="rewardid")
+    private Reward rewardTwo;
+    @ManyToOne
+    @JoinColumn(name = "thirdReward", referencedColumnName="rewardid")
+    private Reward rewardThree;
+    @ManyToOne
+    @JoinColumn(name = "fourthReward", referencedColumnName="rewardid")
+    private Reward rewardFour;
 }
