@@ -1,16 +1,25 @@
 package dev.skiff.archnemesisapi.model;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "Recipes")
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
+@JsonIdentityInfo(
+        generator = ObjectIdGenerators.PropertyGenerator.class,
+        property = "recipeID")
 public class Recipe {
     @Id
     private int recipeID;
@@ -18,28 +27,15 @@ public class Recipe {
     private String name;
     @Column
     private String description;
-    @ManyToOne
-    @JoinColumn(name = "firstIng", referencedColumnName="modifierid")
-    private Modifier firstIng;
-    @ManyToOne
-    @JoinColumn(name = "secondIng", referencedColumnName="modifierid")
-    private Modifier secondIng;
-    @ManyToOne
-    @JoinColumn(name = "thirdIng", referencedColumnName="modifierid")
-    private Modifier thirdIng;
-    @ManyToOne
-    @JoinColumn(name = "fourthIng", referencedColumnName="modifierid")
-    private Modifier fourthIng;
-    @ManyToOne
-    @JoinColumn(name = "firstReward", referencedColumnName="rewardid")
-    private Reward rewardOne;
-    @ManyToOne
-    @JoinColumn(name = "secondReward", referencedColumnName="rewardid")
-    private Reward rewardTwo;
-    @ManyToOne
-    @JoinColumn(name = "thirdReward", referencedColumnName="rewardid")
-    private Reward rewardThree;
-    @ManyToOne
-    @JoinColumn(name = "fourthReward", referencedColumnName="rewardid")
-    private Reward rewardFour;
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
+    @JsonIgnoreProperties({"modifiers", "recipeList"})
+    @JoinTable(name = "recipes_modifiers",
+            joinColumns = {
+                @JoinColumn(name = "recipeid", referencedColumnName = "recipeid", nullable = false, updatable = false)
+            },
+            inverseJoinColumns = {
+                @JoinColumn(name = "modifierid", referencedColumnName = "modifierid", nullable = false, updatable = false)
+            }
+    )
+    List<Modifier> modifiers = new ArrayList<Modifier>();
 }

@@ -5,9 +5,11 @@ import dev.skiff.archnemesisapi.repository.RecipeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 @Component
+@Transactional
 public class RecipeService {
     RecipeRepository recipeRepository;
 
@@ -38,5 +40,17 @@ public class RecipeService {
             return recipeRepository.save(updatedRecipe);
         }
         return null;
+    }
+
+    public List<Recipe> getAllRecipesByCurrency(String currency) {
+        return recipeRepository.getAllRecipesByCurrency(currency);
+    }
+
+    public List<Recipe> getAllRecipesByModifier(String modifier) {
+        return recipeRepository.getAllRecipesByModifier(modifier);
+    }
+
+    public int deleteRecipeById(int id) {
+        return recipeRepository.deleteRecipeById(id);
     }
 }

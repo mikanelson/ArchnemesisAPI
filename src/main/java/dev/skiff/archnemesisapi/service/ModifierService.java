@@ -5,9 +5,11 @@ import dev.skiff.archnemesisapi.repository.ModifierRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 @Component
+@Transactional
 public class ModifierService {
     ModifierRepository modifierRepository;
 
@@ -35,8 +37,16 @@ public class ModifierService {
     public Modifier updateModifier(int id, Modifier updatedModifier) {
         Modifier modifier = modifierRepository.findModifierById(id);
         if (modifier != null) {
-            modifierRepository.save(updatedModifier);
+            return modifierRepository.save(updatedModifier);
         }
         return null;
+    }
+
+    public List<Modifier> getAllModifiersByCurrency(String currency) {
+        return modifierRepository.getAllModifiersByCurrency(currency);
+    }
+
+    public int deleteModifierById(int id) {
+        return modifierRepository.deleteModifierById(id);
     }
 }

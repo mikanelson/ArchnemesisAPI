@@ -35,4 +35,24 @@ public class RecipeController {
     public Recipe getRecipeById(@PathVariable int id) {
         return recipeService.getRecipeById(id);
     }
+
+    @GetMapping("recipe/currency/{currency}")
+    public List<Recipe> getAllRecipesByCurrency(@PathVariable String currency) {
+        return recipeService.getAllRecipesByCurrency(currency);
+    }
+
+    @GetMapping("recipe/modifier/{modifier}")
+    public List<Recipe> getAllRecipesByModifier(@PathVariable String modifier) {
+        return recipeService.getAllRecipesByModifier(modifier);
+    }
+
+    @DeleteMapping("recipe/delete/id/{id}")
+    public int deleteRecipeById(@PathVariable int id) {
+        return recipeService.deleteRecipeById(id);
+    }
+
+    @PutMapping("recipe/update/id/{id}")
+    public Recipe updateRecipeById(@PathVariable int id, @RequestBody Recipe recipe) {
+        return recipeService.updateRecipe(id, recipe);
+    }
 }
