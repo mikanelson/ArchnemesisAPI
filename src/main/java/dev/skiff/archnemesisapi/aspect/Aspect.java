@@ -3,12 +3,9 @@ package dev.skiff.archnemesisapi.aspect;
 import org.apache.log4j.Logger;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Before;
-import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
 
-@Component
-@org.aspectj.lang.annotation.Aspect
 public class Aspect {
     Logger logger = Logger.getLogger(Aspect.class);
 
