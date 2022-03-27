@@ -4,7 +4,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/mikanelson/ArchnemesisAPI">
-    <img src="https://i.redd.it/b5bhncq7f8d81.png" alt="Archnemesis Logo" width="50%" height="50%">
+    <img src="https://i.redd.it/b5bhncq7f8d81.png" alt="Archnemesis Logo">
   </a>
 
 <h3 align="center">Archnemesis API</h3>
