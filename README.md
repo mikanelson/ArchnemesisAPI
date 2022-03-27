@@ -1,7 +1,6 @@
 [![LinkedIn][linkedin-shield]][linkedin-url]
 
-<!-- PROJECT LOGO AND INFO -->
-![Archnemesis Logo](https://i.redd.it/b5bhncq7f8d81.png)
+<!-- PROJECT INFO -->
 <br />
 <div align="center">
 <h3 align="center">Archnemesis API</h3>
@@ -47,7 +46,6 @@ Project Link: [https://github.com/mikanelson/ArchnemesisAPI](https://github.com/
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
 
-* [u/Alialialun](https://www.reddit.com/user/Alialialun/) - Transparent Archnemesis Logo
 * [u/iAkrobat](https://www.reddit.com/user/iAkrobat/) - Archnemesis Modifier Chart
 * [Grinding Gear Games](https://grindinggear.com/) - Path of Exile Developer
 
