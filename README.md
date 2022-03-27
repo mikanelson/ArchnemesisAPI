@@ -1,12 +1,9 @@
 [![LinkedIn][linkedin-shield]][linkedin-url]
 
 <!-- PROJECT LOGO AND INFO -->
+![Archnemesis Logo](https://i.redd.it/b5bhncq7f8d81.png)
 <br />
 <div align="center">
-  <a href="https://github.com/mikanelson/ArchnemesisAPI">
-    <img src="https://i.redd.it/b5bhncq7f8d81.png" alt="Archnemesis Logo">
-  </a>
-
 <h3 align="center">Archnemesis API</h3>
 
   <p align="center">
