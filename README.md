@@ -42,8 +42,6 @@ To-Do:
 <!-- GETTING STARTED -->
 ## Getting Started
 
-To get a local copy up and running follow these steps.
-
 ### Prerequisites
 * Java 8
   ```sh
