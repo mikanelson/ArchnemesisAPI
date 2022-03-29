@@ -39,8 +39,6 @@ Implemented:
 To-Do:
 * Add modifier icon urls
 
-## Getting Started
-
 <!-- GETTING STARTED -->
 ## Getting Started
 
