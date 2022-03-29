@@ -26,16 +26,77 @@ showcasing the recipes. In order to streamline the process of targeting certain 
 * [Azure VM, Azure DB](https://azure.microsoft.com/) - REST endpoint hosting, Azure SQL DB hosting
 * [Hibernate](https://hibernate.org/orm/) - ORM
 
-## Responsibilities
-* Created a web API to host Path of Exile Archnemesis modifiers and recipes
-* Utilized Hibernate ORM to map objects
-* Created and designed Azure SQL database
-* Implemented Spring MVC to host Apache Tomcat and create the server
-* Managed project dependencies with Maven
-* Utilized AspectJ to log user interactions with database
-* Hosted codebase on GitHub
-* Created and managed Azure VM
+## Features
 
+Implemented:
+* Request all modifiers
+* Request modifier by name, id, or reward type
+* Add, delete, or update modifier
+* Request all recipes
+* Request recipe by name, id, reward type, or modifiers
+* Add, delete, or update recipe
+
+To-Do:
+* Add modifier icon urls
+
+## Getting Started
+
+<!-- GETTING STARTED -->
+## Getting Started
+
+To get a local copy up and running follow these steps.
+
+### Prerequisites
+* Java 8
+  ```sh
+  https://www.oracle.com/java/technologies/downloads/#java8
+  ```
+* Maven
+  ```sh
+  https://maven.apache.org/download.cgi
+  ```
+* Any database
+
+### Installation
+
+1. Clone the repo
+   ```sh
+   git clone https://github.com/mikanelson/ArchnemesisAPI
+   ```
+2. Navigate to the downloaded repository
+   
+3. Install the dependencies
+   ```sh
+   mvn clean install
+   ```
+
+4. Create a file named `application.properties`. An example is provided below for Azure SQL. If you are using a different
+database, you will have to change the dialect.
+   ```sh
+    spring.datasource.url={DB_URL}
+    spring.datasource.username={DB_USERNAME}
+    spring.datasource.password={DB_PASSWORD}
+    hibernate.dialect=org.hibernate.dialect.SQLServerDialect
+    spring.jpa.hibernate.ddl-auto=update
+    spring.datasource.initialization-mode=always
+    spring.jpa.show-sql=true
+
+    server.port=9000
+   ```
+
+<!-- USAGE EXAMPLES -->
+## Usage
+1. Package the project
+   ```sh
+   mvn package
+   ```
+   
+2. Navigate to the target directory
+
+3. Run the jar file
+   ```sh
+   java -jar <filename>.jar
+   ```
 <!-- CONTACT -->
 ## Contact
 
