@@ -70,7 +70,7 @@ To get a local copy up and running follow these steps.
    mvn clean install
    ```
 
-4. Create a file named `application.properties`. An example is provided below for Azure SQL. If you are using a different
+4. Create a file named `application.properties` in the resources folder. An example is provided below for Azure SQL. If you are using a different
 database, you will have to change the dialect.
    ```sh
     spring.datasource.url={DB_URL}
